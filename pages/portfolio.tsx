@@ -129,9 +129,9 @@ import {
                   <div className="relative">
                  
                       {bookmarks.map((b) => (
-                          <span key={b.link} as="article">
+                          <div key={b.link} as="article">
                           <BookmarkItem {...b}/>
-                          </span>
+                          </div>
                       ))}
                 
               
