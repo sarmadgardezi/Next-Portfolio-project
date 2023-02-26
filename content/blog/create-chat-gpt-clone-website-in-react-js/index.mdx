@@ -1,0 +1,197 @@
+---
+title: Create Chat GPT Clone Website in React Js
+summary: How you can build a AI based Chat GPT with react.js language
+publishedAt: '2023-01-21'
+category: 'Coding'
+type: 'Guide'
+banner:
+  name: 'create-chat-gpt-clone-website-in-react-js'
+  caption: 'Create Chat GPT Clone Website in React Js'
+tags:
+  [
+    'Code',
+    'Next JS',
+  ]
+mediumUrl: 
+---
+export * as banner from './create-chat-gpt-clone-website-in-react-js.jpeg';
+
+Using GPT-3 in a Next.js application would involve making API calls to the OpenAI API to generate text based on the input provided by the user. Here is an example of how you could use the **`axios`**  library to make a request to the OpenAI API in a Next.js server-side function:
+
+## How To Setup with React
+
+```tsx:server/api showLineNumbers
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const initialState = {
+  input: '',
+  output: '',
+  loading: false,
+  error: null,
+};
+
+export default function Home() {
+  const [state, setState] = useState(initialState);
+
+  const handleChange = (event) => {
+    setState({ ...state, input: event.target.value });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setState({ ...state, loading: true });
+
+    try {
+      const response = await axios.post('/api/generate', { input: state.input });
+      setState({ ...state, output: response.data.output, loading: false });
+    } catch (error) {
+      setState({ ...state, error: error.message, loading: false });
+    }
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <textarea value={state.input} onChange={handleChange} />
+        <button type="submit" disabled={state.loading}>
+          Generate Text
+        </button>
+      </form>
+      {state.loading && <p>Loading...</p>}
+      {state.error && <p>Error: {state.error}</p>}
+      {state.output && <p>{state.output}</p>}
+    </div>
+  );
+}
+```
+This example uses the davinci-codex engine and completions endpoint of the OpenAI API. The input text is passed as a prompt and temperature is set to 0.5. The **`OPENAI_API_KEY`**  should be set as an environment variable.
+
+Please note that using OpenAI's GPT-3 API requires an API key, and usage is subject to OpenAI's terms of service.
+
+This is just a basic example and you might need to adjust it based on your requirement and usage of the GPT-3.
+
+## Here is an example of how you could use the server-side function 
+
+in a Next.js **`pages/index.js`** file to handle user input and display the generated text on the client side
+
+```tsx:pages/index.js showLineNumbers
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const initialState = {
+  input: '',
+  output: '',
+  loading: false,
+  error: null,
+};
+
+export default function Home() {
+  const [state, setState] = useState(initialState);
+
+  const handleChange = (event) => {
+    setState({ ...state, input: event.target.value });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setState({ ...state, loading: true });
+
+    try {
+      const response = await axios.post('/api/generate', { input: state.input });
+      setState({ ...state, output: response.data.output, loading: false });
+    } catch (error) {
+      setState({ ...state, error: error.message, loading: false });
+    }
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <textarea value={state.input} onChange={handleChange} />
+        <button type="submit" disabled={state.loading}>
+          Generate Text
+        </button>
+      </form>
+      {state.loading && <p>Loading...</p>}
+      {state.error && <p>Error: {state.error}</p>}
+      {state.output && <p>{state.output}</p>}
+    </div>
+  );
+}
+```
+This code uses a React functional component and hooks to handle the input and output of text. The user can input text in a textarea, and when the form is submitted, the input text is sent to the server-side function using **`axios.post()`** . The response from the server is then displayed on the page, along with a loading spinner and error message if necessary.
+
+You might need to adjust the code based on the structure of your project and how you want to handle the input and output of text.
+
+In order for this to work, you should also make sure to set up a /api endpoint in your next.**`config.js file`** :
+```tsx:config.js file showLineNumbers
+module.exports = {
+  ...
+  serverRuntimeConfig: {
+    ...
+  },
+  publicRuntimeConfig: {
+    ...
+  },
+  experimental: {
+    async rewrites() {
+      return [
+        {
+          source: '/api/generate',
+          destination: '/api/generate',
+        },
+      ]
+    },
+  },
+}
+```
+In order for the handleSubmit method to correctly send a request to the **`/api/generate`** endpoint, you will need to set up the endpoint in the server-side of your Next.js app. You can do this by creating a new file, **`pages/api/generate.js`** and adding the following code:
+
+```tsx:pages/api/generate.js file showLineNumbers
+import handleInput from '../../server/handleInput';
+
+export default async function(req, res) {
+  await handleInput(req, res);
+}
+```
+
+
+## Creating Package.Json file
+Here is an example of what a **`package.json`** file might look like for a Next.js project that uses GPT-3 through the OpenAI API:
+
+```tsx:package.json file showLineNumbers
+{
+  "name": "ChatGPT-Sarmadnext-project",
+  "version": "1.0.0",
+  "description": "A Next.js project that uses GPT-3",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "axios": "^0.22.0",
+    "next": "^11.1.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5"
+  }
+}
+
+```
+This **`package.json`** file includes the minimum dependencies needed for a Next.js project, including next, react, and react-dom. It also includes axios which is used to make API calls to the OpenAI API.
+
+The scripts section includes commands for starting the development server, building the project, and starting the production server. You can use these scripts by running npm run dev, **`npm run build`**, and **`npm run start`** respectively.
+
+It also includes devDependencies for linting such as eslint and its config and plugin.
+
+You might need to add or remove dependencies based on your project requirements.
+
+You should also set the **`OPENAI_API_KEY`** as an environment variable on your server. This can be done by adding it to your server's environment or using a package like dotenv to set it in a **`.env`** file
