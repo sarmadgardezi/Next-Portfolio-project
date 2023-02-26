@@ -20,7 +20,7 @@ import {
   import { BsArrowUpRight, BsHeartFill, BsHeart } from 'react-icons/bs';
   import { HeroSection } from '../sections/PortfolioPage/hero';
   import { styled } from '@config/stitches.config';
-  import { XMarkIcon } from '@heroicons/react/20/solid'
+
   
   const ContactSectionSection = styled('section', {
     '> div': {
@@ -128,7 +128,6 @@ import {
       <div className="flex flex-1 justify-end">
         <button type="button" className="-m-3 p-3 focus-visible:outline-offset-[-4px]">
           <span className="sr-only">Dismiss</span>
-          <XMarkIcon className="h-5 w-5 text-gray-900" aria-hidden="true" />
         </button>
       </div>
     </div>
