@@ -20,7 +20,6 @@ import {
   import { BsArrowUpRight, BsHeartFill, BsHeart } from 'react-icons/bs';
   import { HeroSection } from '../sections/PortfolioPage/hero';
   import { styled } from '@config/stitches.config';
-  import { motion } from 'framer-motion';
   
   const ContactSectionSection = styled('section', {
     '> div': {
@@ -76,42 +75,62 @@ import {
   const BookmarkItem = ({title,  excerpt, cover, type, link, created, tags}) => {
   
     return (
-      <motion.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1, delay: 1 }}
-			transition={{
-				ease: 'easeInOut',
-				duration: 0.7,
-				delay: 0.15,
-			}}
-		>
-			<Link
-				href={link} 
-				passHref
-			>
-				<div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">
-					<div>
-						<Link href={link} isExternal={true}></Link>
-						<Image
-						src={cover}
-							className="rounded-t-xl border-none"
-							
-							layout="responsive"
-							width={100}
-							height={90}
-						/>
-					</div>
-					<div className="text-center px-4 py-6">
-						<p className="font-general-medium text-xl md:text-2xl text-ternary-dark dark:text-ternary-light mb-2">
-							{title}
-						</p>
-						<span className="text-lg text-ternary-dark dark:text-ternary-light">
-							{excerpt}
-						</span>
-					</div>
-				</div>
-			</Link>
-		</motion.div>
+    
+      <Box
+        w="xs"
+        rounded={'sm'}
+        my={5}
+        mx={[0, 5]}
+        overflow={'hidden'}
+        bg="white"
+        border={'1px'}
+        borderColor="black"
+        boxShadow={useColorModeValue('6px 6px 0 black', '6px 6px 0 cyan')}>
+        <Box h={'200px'} borderBottom={'1px'} borderColor="black">
+        <Link href={link} isExternal={true}></Link>
+          <Img
+            src={cover}
+            objectFit="cover"
+            width="100%"
+            height="100%"
+            overflow="hidden"
+          />
+        </Box>
+        <Box p={4}>
+        
+          <Heading color={'black'} fontSize={'16px'} noOfLines={1}>
+          {title}
+          </Heading>
+          <Text color={'gray.500'} noOfLines={2}>
+            {excerpt}
+          </Text>
+        </Box>
+        <HStack borderTop={'1px'} color="black">
+          <Flex
+            p={4}
+            alignItems="center"
+            justifyContent={'space-between'}
+            roundedBottom={'sm'}
+            cursor={'pointer'}
+            w="full">
+            <Text fontSize={'12px'} fontWeight={'semibold'}>
+             {link}
+            </Text>
+            <BsArrowUpRight />
+          </Flex>
+          <Flex
+            p={4}
+            alignItems="center"
+            justifyContent={'space-between'}
+            roundedBottom={'sm'}
+            borderLeft={'1px'}
+            cursor="pointer"
+            >
+              <BsHeart fontSize={'24px'} />
+           
+          </Flex>
+        </HStack>
+      </Box>
 
     )
   }
@@ -121,24 +140,25 @@ import {
       return (
         <>
          <HeroSection openContactModal={() => setIsModalOpen(true)} />
-         
         <ContactSectionSection id="contact-section">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-5">
               {bookmarks !== null && bookmarks.length > 0
                   ?
-                  <GridItem key={b.link} as="article">
+                  <SimpleGrid alignItems="stretch"
+                  gap={12}
+                  w="full"
+                  columns={[1, 6]} spacing={4} mt={6}>
                  
                       {bookmarks.map((b) => (
-                         
+                          <GridItem key={b.link} as="article">
                           <BookmarkItem {...b}/>
-                         
+                          </GridItem>
                       ))}
                 
               
-               </GridItem>
+                  </SimpleGrid>
   
                   : <Text>Favoritos não encontrados.</Text>}
-      </div>
+      
           
           </ContactSectionSection>
           </>
