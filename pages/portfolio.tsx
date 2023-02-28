@@ -135,7 +135,7 @@ import {
                       ))}
                 
               
-                  </div>
+               </GridItem>
   
                   : <Text>Favoritos não encontrados.</Text>}
       </div>
