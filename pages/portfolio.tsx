@@ -15,8 +15,9 @@ import {
   Center,
   Img,
   SimpleGrid,
-
+  breakpoints,
   useColorModeValue as mode} from "@chakra-ui/react"; 
+
   import { BsArrowUpRight, BsHeartFill, BsHeart } from 'react-icons/bs';
   import { HeroSection } from '../sections/PortfolioPage/hero';
   import { styled } from '@config/stitches.config';
@@ -143,10 +144,11 @@ import {
         <ContactSectionSection id="contact-section">
               {bookmarks !== null && bookmarks.length > 0
                   ?
-                  <SimpleGrid alignItems="stretch"
-                  gap={12}
-                  w="full"
-                  columns={[1, 6]} spacing={4} mt={6}>
+                  <Grid 
+      templateColumns={{ base: 'repeat(2, 1fr)', 
+                        [breakpoints.md]: 'repeat(3, 1fr)',
+                        [breakpoints.lg]: 'repeat(4, 1fr)',}} 
+      gap={6} >
                  
                       {bookmarks.map((b) => (
                           <GridItem key={b.link} as="article">
@@ -155,7 +157,7 @@ import {
                       ))}
                 
               
-                  </SimpleGrid>
+                  </Grid>
   
                   : <Text>Favoritos não encontrados.</Text>}
       
