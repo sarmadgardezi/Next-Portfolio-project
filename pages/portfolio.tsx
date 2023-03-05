@@ -76,61 +76,45 @@ import {
   
     return (
     
-      <Box
-        w="xs"
-        rounded={'sm'}
-        my={5}
-        mx={[0, 5]}
-        overflow={'hidden'}
-        bg="white"
-        border={'1px'}
-        borderColor="black"
-        boxShadow={useColorModeValue('6px 6px 0 black', '6px 6px 0 cyan')}>
-        <Box h={'200px'} borderBottom={'1px'} borderColor="black">
-        <Link href={link} isExternal={true}></Link>
-          <Img
-            src={cover}
-            objectFit="cover"
-            width="100%"
-            height="100%"
-            overflow="hidden"
-          />
-        </Box>
-        <Box p={4}>
-        
-          <Heading color={'black'} fontSize={'16px'} noOfLines={1}>
-          {title}
-          </Heading>
-          <Text color={'gray.500'} noOfLines={2}>
-            {excerpt}
-          </Text>
-        </Box>
-        <HStack borderTop={'1px'} color="black">
-          <Flex
-            p={4}
-            alignItems="center"
-            justifyContent={'space-between'}
-            roundedBottom={'sm'}
-            cursor={'pointer'}
-            w="full">
-            <Text fontSize={'12px'} fontWeight={'semibold'}>
-             {link}
+      <LinkBox as="article">
+
+      <Tooltip label={excerpt}>       
+       <VStack   alignItems="center"
+          justifyContent={{ base: 'center', md: 'flex-start' }}
+          overflow="hidden"
+          bg="gray.50"
+          _hover={{ transform: 'scale(1.05, 1.05)' }}
+          _dark={{
+            bg: 'whiteAlpha.100',
+          }}
+          rounded="md"
+          spacing={0}
+          transitionDuration="slow"
+          transitionProperty="transform"
+          transitionTimingFunction="ease-out"
+       >
+       <AspectRatio w="full" ratio={16 / 9}>
+            <Image
+              alt={`Thumbnail of ${title}`}
+              fallback={<Skeleton w="full" h="full" />}
+              src={imgurl} objectFit='cover'
+            />
+          </AspectRatio>
+          <VStack alignItems="flex-start" flex={1} w="full" p={3} spacing={1}>
+            <LinkOverlay w="full" href={wurl} isExternal>
+              <Heading noOfLines={1} size="xs">
+                {title}
+              </Heading>
+            </LinkOverlay>
+            <Text color="gray.500" fontSize="xs" textTransform="capitalize">
+              {tags}
             </Text>
-            <BsArrowUpRight />
-          </Flex>
-          <Flex
-            p={4}
-            alignItems="center"
-            justifyContent={'space-between'}
-            roundedBottom={'sm'}
-            borderLeft={'1px'}
-            cursor="pointer"
-            >
-              <BsHeart fontSize={'24px'} />
-           
-          </Flex>
-        </HStack>
-      </Box>
+          </VStack>
+          
+        </VStack>
+        </Tooltip>
+  
+    </LinkBox>
 
     )
   }
@@ -143,7 +127,13 @@ import {
          <VStack spacing={16} flex={1} w="full" as="main">
               {bookmarks !== null && bookmarks.length > 0
                   ?
-                  <Grid templateColumns="repeat(2, 1fr)" gap={6}> 
+                  <SimpleGrid
+                  as="section"
+                  alignItems="stretch"
+                  gap={12}
+                  w="full"
+                  columns={{ base: 1, sm: 2, md: 3 }}
+                >
                  
                       {bookmarks.map((b) => (
                           <GridItem key={b.link} as="article">
@@ -152,7 +142,7 @@ import {
                       ))}
                 
               
-                  </Grid>
+                  </SimpleGrid>
   
                   : <Text>Favoritos não encontrados.</Text>}
       
