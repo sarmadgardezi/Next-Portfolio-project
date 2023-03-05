@@ -140,7 +140,7 @@ import {
       return (
         <>
          <HeroSection openContactModal={() => setIsModalOpen(true)} />
-        <ContactSectionSection id="contact-section">
+         <VStack spacing={16} flex={1} w="full" as="main">
               {bookmarks !== null && bookmarks.length > 0
                   ?
                   <Grid templateColumns="repeat(2, 1fr)" gap={6}> 
@@ -157,7 +157,7 @@ import {
                   : <Text>Favoritos não encontrados.</Text>}
       
           
-          </ContactSectionSection>
+          </VStack>
           </>
       )
   }
