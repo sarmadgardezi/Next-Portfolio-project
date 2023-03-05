@@ -101,7 +101,7 @@ import {
             <Image
               alt={`Thumbnail of ${title}`}
               fallback={<Skeleton w="full" h="full" />}
-              src={imgurl} objectFit='cover'
+              src={cover} objectFit='cover'
             />
           </AspectRatio>
           <VStack alignItems="flex-start" flex={1} w="full" p={3} spacing={1}>
