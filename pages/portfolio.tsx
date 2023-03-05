@@ -17,6 +17,8 @@ import {
   SimpleGrid,
   LinkBox,
   Tooltip,
+  AspectRatio,
+  LinkOverlay,
   useColorModeValue as mode} from "@chakra-ui/react"; 
 
   import { BsArrowUpRight, BsHeartFill, BsHeart } from 'react-icons/bs';
