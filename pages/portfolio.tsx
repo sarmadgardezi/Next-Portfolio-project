@@ -105,7 +105,7 @@ import {
             />
           </AspectRatio>
           <VStack alignItems="flex-start" flex={1} w="full" p={3} spacing={1}>
-            <LinkOverlay w="full" href={wurl} isExternal>
+            <LinkOverlay w="full" href={link} isExternal>
               <Heading noOfLines={1} size="xs">
                 {title}
               </Heading>
