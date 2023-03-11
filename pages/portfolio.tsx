@@ -97,14 +97,14 @@ import {
           transitionProperty="transform"
           transitionTimingFunction="ease-out"
        >
-       <AspectRatio w="full" ratio={16 / 9}>
+       
        <Link href={link} isExternal={true}></Link>
             <Image
               alt={`Thumbnail of ${title}`}
               fallback={<Skeleton w="full" h="full" />}
               src={cover} objectFit='cover'
             />
-          </AspectRatio>
+  
           <VStack alignItems="flex-start" flex={1} w="full" p={3} spacing={1}>
             <LinkOverlay w="full" href={link} isExternal>
               <Heading noOfLines={1} size="xs">
