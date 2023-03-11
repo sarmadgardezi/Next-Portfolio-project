@@ -97,6 +97,7 @@ import {
           transitionProperty="transform"
           transitionTimingFunction="ease-out"
        >
+         <Link href={link} isExternal={true}></Link>
        <AspectRatio w="full" ratio={16 / 9}>
             <Image
               alt={`Thumbnail of ${title}`}
