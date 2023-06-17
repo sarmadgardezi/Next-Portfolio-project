@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
         <div>
           <SocialProfiles alignment="right" />
           <span className="copyright">
-            © {new Date().getFullYear()} Konstantin Münster. All rights
+            © {new Date().getFullYear()} Sarmad Gardezi. All rights
             reserved.
           </span>
         </div>
