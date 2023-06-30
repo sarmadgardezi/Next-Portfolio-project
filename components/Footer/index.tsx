@@ -53,11 +53,11 @@ export const Footer: React.FC = () => {
     <StyledFooter>
       <ContentWrapper>
         <div>
-          <footer class="bg-gray-100">
-  <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-    <div class="flex justify-center text-teal-600">
+          <footer className="bg-gray-100">
+  <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <div className="flex justify-center text-teal-600">
       <svg
-        class="h-8"
+        className="h-8"
         viewBox="0 0 118 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -105,60 +105,60 @@ export const Footer: React.FC = () => {
       </svg>
     </div>
 
-    <p class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
+    <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
       consequuntur amet culpa cum itaque neque.
     </p>
 
-    <ul class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
+    <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
       <li>
-        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
+        <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
           About
         </a>
       </li>
 
       <li>
-        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
+        <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
           Careers
         </a>
       </li>
 
       <li>
-        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
+        <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
           History
         </a>
       </li>
 
       <li>
-        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
+        <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
           Services
         </a>
       </li>
 
       <li>
-        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
+        <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
           Projects
         </a>
       </li>
 
       <li>
-        <a class="text-gray-700 transition hover:text-gray-700/75" href="/">
+        <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
           Blog
         </a>
       </li>
     </ul>
 
-    <ul class="mt-12 flex justify-center gap-6 md:gap-8">
+    <ul className="mt-12 flex justify-center gap-6 md:gap-8">
       <li>
         <a
           href="/"
           rel="noreferrer"
           target="_blank"
-          class="text-gray-700 transition hover:text-gray-700/75"
+          className="text-gray-700 transition hover:text-gray-700/75"
         >
-          <span class="sr-only">Facebook</span>
+          <span className="sr-only">Facebook</span>
           <svg
-            class="h-6 w-6"
+            className="h-6 w-6"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -177,11 +177,11 @@ export const Footer: React.FC = () => {
           href="/"
           rel="noreferrer"
           target="_blank"
-          class="text-gray-700 transition hover:text-gray-700/75"
+          className="text-gray-700 transition hover:text-gray-700/75"
         >
-          <span class="sr-only">Instagram</span>
+          <span className="sr-only">Instagram</span>
           <svg
-            class="h-6 w-6"
+            className="h-6 w-6"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -200,11 +200,11 @@ export const Footer: React.FC = () => {
           href="/"
           rel="noreferrer"
           target="_blank"
-          class="text-gray-700 transition hover:text-gray-700/75"
+          className="text-gray-700 transition hover:text-gray-700/75"
         >
-          <span class="sr-only">Twitter</span>
+          <span className="sr-only">Twitter</span>
           <svg
-            class="h-6 w-6"
+            className="h-6 w-6"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -221,11 +221,11 @@ export const Footer: React.FC = () => {
           href="/"
           rel="noreferrer"
           target="_blank"
-          class="text-gray-700 transition hover:text-gray-700/75"
+          className="text-gray-700 transition hover:text-gray-700/75"
         >
-          <span class="sr-only">GitHub</span>
+          <span className="sr-only">GitHub</span>
           <svg
-            class="h-6 w-6"
+            className="h-6 w-6"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -244,11 +244,11 @@ export const Footer: React.FC = () => {
           href="/"
           rel="noreferrer"
           target="_blank"
-          class="text-gray-700 transition hover:text-gray-700/75"
+          className="text-gray-700 transition hover:text-gray-700/75"
         >
-          <span class="sr-only">Dribbble</span>
+          <span className="sr-only">Dribbble</span>
           <svg
-            class="h-6 w-6"
+            className="h-6 w-6"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -266,7 +266,7 @@ export const Footer: React.FC = () => {
 </footer>
           
           <SocialProfiles alignment="right" />
-          <span className="copyright">
+          <span classNameName="copyright">
             © {new Date().getFullYear()} Sarmad Gardezi. All rights
             reserved.
           </span>
