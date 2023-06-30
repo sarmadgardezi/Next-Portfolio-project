@@ -53,9 +53,8 @@ export const Footer: React.FC = () => {
     <StyledFooter>
       <ContentWrapper>
         <div>
-         
           <SocialProfiles alignment="right" />
-          <span classNameName="copyright">
+          <span className="copyright">
             © {new Date().getFullYear()} Sarmad Gardezi. All rights
             reserved.
           </span>
