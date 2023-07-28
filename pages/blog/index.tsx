@@ -2,7 +2,6 @@ import { ArticleJsonLd, ArticleJsonLdProps, NextSeo } from 'next-seo';
 import type { GetStaticProps, NextPage } from 'next';
 
 import { getAllBlogPosts } from '@lib/mdx/blog';
-import {Adsense} from '@ctrl/react-adsense';
 import { generateSeoProps } from '@config/seo.config';
 import { ContentRoutes } from '@config/content.config';
 import { HeroSection } from '@sections/BlogPage/Hero';
@@ -46,12 +45,6 @@ const BlogPage: NextPage<BlogPageProps> = props => {
       <ArticleJsonLd {...jsonLdProps} />
       <NextSeo {...seoProps} />
       <HeroSection posts={props.posts} />
-      <Adsense
-  client="ca-pub-7640562161899788"
-  slot="7259870550"
-  style={{ width: 500, height: 300 }}
-  format=""
-/>
       <ListingSection posts={props.posts} />
     
     </>
